@@ -1,33 +1,36 @@
+import errorMessage from '../constants/errorMessage.js';
+
 class ReservationDayValidator {
   static validate(day) {
     const reservationDayValidator = new ReservationDayValidator();
-    reservationDayValidator.#validateInRange(day);
-    reservationDayValidator.#validateIsNumber(day);
-    reservationDayValidator.#validateNaturalNumber(day);
-    reservationDayValidator.#validateNotUnusualCase(day);
+    const reservationDayError = new Error(errorMessage.RESERVATION_DAY);
+    reservationDayValidator.#validateInRange(day, reservationDayError);
+    reservationDayValidator.#validateIsNumber(day, reservationDayError);
+    reservationDayValidator.#validateNaturalNumber(day, reservationDayError);
+    reservationDayValidator.#validateNotUnusualCase(day, reservationDayError);
   }
 
-  #validateIsNumber(day) {
+  #validateIsNumber(day, reservationDayError) {
     if (Number.isNaN(Number(day))) {
-      throw new Error('[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.');
+      throw reservationDayError;
     }
   }
 
-  #validateInRange(day) {
+  #validateInRange(day, reservationDayError) {
     if (Number(day) < 1 || Number(day) > 31) {
-      throw new Error('[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.');
+      throw reservationDayError;
     }
   }
 
-  #validateNotUnusualCase(day) {
+  #validateNotUnusualCase(day, reservationDayError) {
     if (day !== Number(day).toString()) {
-      throw new Error('[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.');
+      throw reservationDayError;
     }
   }
 
-  #validateNaturalNumber(day) {
+  #validateNaturalNumber(day, reservationDayError) {
     if (!Number.isInteger(Number(day))) {
-      throw new Error('[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.');
+      throw reservationDayError;
     }
   }
 }
