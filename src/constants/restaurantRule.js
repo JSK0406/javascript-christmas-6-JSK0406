@@ -9,6 +9,12 @@ const restaurantRule = Object.freeze({
   WEEKDAY_DISCOUNT_BY_COUNT: 2023,
   WEEKEND_DISCOUNT_BY_COUNT: 2023,
   SPECIAL_DISCOUNT: 1000,
+  EVENT_BADGE_LEAST_DISCOUNT_PRICE: 5000,
+  EVENT_BADGE: {
+    STAR: 5000,
+    TREE: 10000,
+    SANTA: 2000,
+  },
 });
 
 export default restaurantRule;
