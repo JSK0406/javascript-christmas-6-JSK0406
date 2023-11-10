@@ -2,6 +2,9 @@ const restaurantRule = Object.freeze({
   ORDER_MIN_COUNT: 1,
   ORDER_MAX_COUNT: 20,
   GIVE_AWAY_MIN_PRICE: 120_000,
+  EVENT_LEAST_PRICE: 10_000,
+  CHRISTMAS_EVENT_LEAST_DISCOUNT: 1000,
+  CHRISTMAS_EVENT_DISCOUNT_INCREMENT_BY_DAY: 100,
 });
 
 export default restaurantRule;
