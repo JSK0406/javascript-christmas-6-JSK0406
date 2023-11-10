@@ -20,6 +20,10 @@ class ReservationDay {
   isWeekendEvent() {
     return calender.WEEKEND.includes(this.#day);
   }
+
+  isSpecialEvent() {
+    return calender.SPECIAL_DAY.includes(this.#day);
+  }
 }
 
 export default ReservationDay;
