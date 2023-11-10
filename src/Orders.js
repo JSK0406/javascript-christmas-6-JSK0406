@@ -1,6 +1,7 @@
 import menu from './constants/menu.js';
 import OrdersValidator from './validator/OrdersValidator.js';
 import restaurantRule from './constants/restaurantRule.js';
+import errorMessage from './constants/errorMessage.js';
 
 class Orders {
   #orders;
@@ -8,6 +9,8 @@ class Orders {
   constructor(orders) {
     OrdersValidator.validate(orders);
     this.#orders = this.#changeFormatToObject(orders);
+    const ordersError = new Error(errorMessage.ORDERS);
+    this.#validateAfterAssign(ordersError);
   }
 
   #changeFormatToObject(orders) {
@@ -49,6 +52,35 @@ class Orders {
 
   extractMenuName() {
     return this.#orders.map(({ menuName }) => menuName);
+  }
+
+  #validateAfterAssign(ordersError) {
+    this.#validateNotOnlyDrink(ordersError);
+    this.#validateTotalCount(ordersError);
+    this.#validateDuplicatedMenu(ordersError);
+  }
+
+  #validateTotalCount(ordersError) {
+    if (this.calculateTotalCount() < restaurantRule.ORDER_MIN_COUNT || this.calculateTotalCount() > restaurantRule.ORDER_MAX_COUNT) {
+      throw ordersError;
+    }
+  }
+
+  #validateDuplicatedMenu(ordersError) {
+    const menuNames = this.extractMenuName();
+    if (menuNames.length !== (new Set(menuNames)).size) {
+      throw ordersError;
+    }
+  }
+
+  #validateNotOnlyDrink(ordersError) {
+    const menuNames = this.extractMenuName();
+    for (const menuName of menuNames) {
+      if (menu[menuName].category !== '음료') {
+        return;
+      }
+    }
+    throw ordersError;
   }
 }
 
