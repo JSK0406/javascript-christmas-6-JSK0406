@@ -12,6 +12,10 @@ class ReservationDay {
   isChristmasEvent() {
     return calender.CHRISTMAS_D_DAY.includes(this.#day);
   }
+
+  isWeekdayEvent() {
+    return calender.WEEKDAY.includes(this.#day);
+  }
 }
 
 export default ReservationDay;
