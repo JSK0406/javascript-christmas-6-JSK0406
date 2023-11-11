@@ -72,6 +72,9 @@ const OutputView = {
   },
   printNothing() {
     Console.print(OUTPUT_VIEW_MESSAGE.nothing);
+  },
+  printError(error) {
+    console.print(error);
   }
 };
 
