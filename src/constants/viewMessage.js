@@ -23,4 +23,5 @@ export const OUTPUT_VIEW_MESSAGE = Object.freeze({
   afterDiscountInit: '<할인 후 예상 결제 금액>',
   afterDiscountFn: (price) => `${price}원`,
   badgeInit: '<12월 이벤트 배지>',
+  nothing: '없음',
 });

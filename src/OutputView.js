@@ -24,7 +24,7 @@ const OutputView = {
     Console.print(OUTPUT_VIEW_MESSAGE.beforeDiscountInit);
   },
   printBeforeDiscount(price) {
-    Console.print(OUTPUT_VIEW_MESSAGE.afterDiscountFn(Formatting.insertCommasByThousandUnits(price)))
+    Console.print(OUTPUT_VIEW_MESSAGE.afterDiscountFn(Formatting.insertCommasByThousandUnits(price)));
   },
   printGiveawayInit() {
     Console.print(OUTPUT_VIEW_MESSAGE.giveawayInit);
@@ -37,19 +37,19 @@ const OutputView = {
   },
   printDiscountHistory(discountHistory) {
     if (discountHistory.christmas > 0) {
-      Console.print(OUTPUT_VIEW_MESSAGE.christmasDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.christmas)))
+      Console.print(OUTPUT_VIEW_MESSAGE.christmasDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.christmas)));
     }
     if (discountHistory.weekday > 0) {
-      Console.print(OUTPUT_VIEW_MESSAGE.weekendDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.weekday)))
+      Console.print(OUTPUT_VIEW_MESSAGE.weekendDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.weekday)));
     }
     if (discountHistory.weekend > 0) {
-      Console.print(OUTPUT_VIEW_MESSAGE.weekendDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.weekend)))
+      Console.print(OUTPUT_VIEW_MESSAGE.weekendDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.weekend)));
     }
     if (discountHistory.special > 0) {
-      Console.print(OUTPUT_VIEW_MESSAGE.specialDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.special)))
+      Console.print(OUTPUT_VIEW_MESSAGE.specialDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.special)));
     }
     if (discountHistory.giveaway > 0) {
-      Console.print(OUTPUT_VIEW_MESSAGE.christmasDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.giveaway)))
+      Console.print(OUTPUT_VIEW_MESSAGE.christmasDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.giveaway)));
     }
   },
   printTotalDiscountInit() {
@@ -68,7 +68,10 @@ const OutputView = {
     Console.print(OUTPUT_VIEW_MESSAGE.badgeInit);
   },
   printBadge(badge) {
-    Console.print(badge)
+    Console.print(badge);
+  },
+  printNothing() {
+    Console.print(OUTPUT_VIEW_MESSAGE.nothing);
   }
 };
 
