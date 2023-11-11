@@ -84,6 +84,15 @@ class Controller {
     OutputView.printAfterDiscount(this.#plannerService.getAfterDiscountPrice());
     OutputView.printNewLine();
   }
+
+  showBadge() {
+    OutputView.printBadgeInit();
+    if (this.#plannerService.getBadge === null) {
+      OutputView.printNothing();
+      return;
+    }
+    OutputView.printBadge(this.#plannerService.getBadge());
+  }
 }
 
 export default Controller;
