@@ -72,6 +72,12 @@ class Controller {
     OutputView.printNothing();
     OutputView.printNewLine();
   }
+
+  showTotalDiscount() {
+    OutputView.printTotalDiscountInit();
+    OutputView.printTotalDiscount(this.#plannerService.getTotalDiscountPrice());
+    OutputView.printNewLine();
+  }
 }
 
 export default Controller;
