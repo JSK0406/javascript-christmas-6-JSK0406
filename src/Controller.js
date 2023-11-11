@@ -7,6 +7,18 @@ import Orders from './Orders.js';
 class Controller {
   #plannerService;
 
+  async operate() {
+    await this.takeReservation();
+    this.showStartingIntroduction();
+    this.showOrderedMenu();
+    this.showBeforeDiscount();
+    this.showGiveaway();
+    this.showDiscountHistory();
+    this.showTotalDiscount();
+    this.showAfterDiscount();
+    this.showBadge();
+  }
+
   async #assignPlannerService() {
     this.#plannerService = new PlannerService(await this.#createReservationDayFromUser(), await this.#createOrdersFromUser());
   }
@@ -16,7 +28,7 @@ class Controller {
       return new ReservationDay(await InputView.inputReservationDayAsync());
     } catch (error) {
       OutputView.printError(error.message);
-      return await this.createReservationDayFromUser();
+      return await this.#createReservationDayFromUser();
     }
   }
 
@@ -25,13 +37,13 @@ class Controller {
       return new Orders(await InputView.inputOrdersAsync());
     } catch (error) {
       OutputView.printError(error.message);
-      return await this.createOrdersFromUser();
+      return await this.#createOrdersFromUser();
     }
   }
 
   async takeReservation() {
     OutputView.printProgramInit();
-    this.assignPlannerService();
+    await this.#assignPlannerService();
   }
 
   showStartingIntroduction() {
@@ -87,7 +99,7 @@ class Controller {
 
   showBadge() {
     OutputView.printBadgeInit();
-    if (this.#plannerService.getBadge === null) {
+    if (this.#plannerService.getBadge() === null) {
       OutputView.printNothing();
       return;
     }
