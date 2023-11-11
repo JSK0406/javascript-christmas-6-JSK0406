@@ -7,7 +7,7 @@ import Orders from './Orders.js';
 class Controller {
   #plannerService;
 
-  async assignPlannerService() {
+  async #assignPlannerService() {
     this.#plannerService = new PlannerService(await this.#createReservationDayFromUser(), await this.#createOrdersFromUser());
   }
 
@@ -27,6 +27,11 @@ class Controller {
       OutputView.printError(error.message);
       return await this.createOrdersFromUser();
     }
+  }
+
+  async takeReservation() {
+    OutputView.printProgramInit();
+    this.assignPlannerService();
   }
 }
 
