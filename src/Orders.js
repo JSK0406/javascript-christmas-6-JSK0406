@@ -50,6 +50,10 @@ class Orders {
     }, 0);
   }
 
+  getOrders() {
+    return [...this.#orders];
+  }
+
   extractMenuName() {
     return this.#orders.map(({ menuName }) => menuName);
   }
