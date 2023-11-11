@@ -24,6 +24,10 @@ class ReservationDay {
   isSpecialEvent() {
     return calender.SPECIAL_DAY.includes(this.#day);
   }
+
+  getDay() {
+    return this.#day;
+  }
 }
 
 export default ReservationDay;

@@ -12,7 +12,7 @@ class OrdersValidator {
     ordersValidator.#validateIsCountNumber(orders, ordersError);
     ordersValidator.#validateIsNotUnusualCount(orders, ordersError);
   }
- 
+
   #validateInMenuList(orders, ordersError) {
     orders.forEach((order) => {
       const menuName = order.split('-')[0];
