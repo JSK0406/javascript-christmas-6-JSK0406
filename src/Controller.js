@@ -61,6 +61,17 @@ class Controller {
     OutputView.printNothing();
     OutputView.printNewLine();
   }
+
+  showDiscountHistory() {
+    OutputView.printDiscountHistoryInit();
+    if (this.#plannerService.getTotalDiscountPrice() > 0) {
+      OutputView.printDiscountHistory(this.#plannerService.getDiscountHistory());
+      OutputView.printNewLine();
+      return;
+    }
+    OutputView.printNothing();
+    OutputView.printNewLine();
+  }
 }
 
 export default Controller;
