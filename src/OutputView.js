@@ -45,7 +45,7 @@ const OutputView = {
     if (discountHistory.weekend > 0) {
       Console.print(OUTPUT_VIEW_MESSAGE.weekendDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.weekend)));
     }
-    if (discountHistory.special > 0) {
+    if (discountHistory.specialDay > 0) {
       Console.print(OUTPUT_VIEW_MESSAGE.specialDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.specialDay)));
     }
     if (discountHistory.giveaway > 0) {
