@@ -12,7 +12,7 @@ class PlannerService {
     this.#reservationDay = reservationDay;
     this.#orders = orders;
     this.#event = new Event();
-    this.#discount = new Discount(this.getChristmasDiscount(), this.getWeekdayDiscount(), this.getWeekendDiscount(), this.getSpecialDiscount());
+    this.#discount = new Discount(this.getChristmasDiscount(), this.getWeekdayDiscount(), this.getWeekendDiscount(), this.getSpecialDiscount(), this.getGiveAwayDiscount());
   }
 
   getChristmasDiscount() {
@@ -43,6 +43,13 @@ class PlannerService {
     return 0;
   }
 
+  getGiveawayDiscount() {
+    if (this.getIsGiveawayEvent()) {
+      return restaurantRule.GIVE_AWAY_DISCOUNT();
+    }
+    return 0;
+  }
+
   getReservationDay() {
     return this.#reservationDay.getDay();
   }
@@ -65,6 +72,7 @@ class PlannerService {
       weekday: this.getWeekdayDiscount(),
       weekend: this.getWeekendDiscount(),
       specialDay: this.getSpecialDiscount(),
+      giveaway: this.getGiveAwayDiscount(),
     };
   }
 

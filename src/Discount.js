@@ -2,8 +2,8 @@ import restaurantRule from './constants/restaurantRule.js';
 
 class Discount {
   #totalDiscount;
-  constructor(christmasDiscount, weekdayDiscount, specialDiscount, giveawayDiscount) {
-    this.#totalDiscount = christmasDiscount + weekdayDiscount + specialDiscount + giveawayDiscount;
+  constructor(christmasDiscount, weekdayDiscount, weekendDiscount, specialDiscount, giveawayDiscount) {
+    this.#totalDiscount = christmasDiscount + weekendDiscount + weekdayDiscount + specialDiscount + giveawayDiscount;
   }
 
   calculateTotalDiscount() {
