@@ -17,7 +17,7 @@ export const OUTPUT_VIEW_MESSAGE = Object.freeze({
   weekdayDiscountFn: (price) => `평일 할인: -${price}원`,
   weekendDiscountFn: (price) => `주말 할인: -${price}원`,
   specialDiscountFn: (price) => `특별 할인: -${price}원`,
-  giveawayDiscount: '증정 이벤트: -25,000원',
+  giveawayDiscountFn: (price) => `증정 이벤트: -${price}원`,
   totalDiscountInit: '<총혜택 금액>',
   totalDiscountFn: (price) => `-${price}원`,
   afterDiscountInit: '<할인 후 예상 결제 금액>',
