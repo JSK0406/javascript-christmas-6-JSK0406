@@ -1,4 +1,4 @@
-import restaurantRule from './constants/restaurantRule.js';
+import restaurantRule from '../../constants/restaurantRule.js';
 
 class Discount {
   #totalDiscount;

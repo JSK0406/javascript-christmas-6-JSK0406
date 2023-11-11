@@ -1,6 +1,6 @@
-import Event from './Event.js';
-import Discount from './Discount.js';
-import restaurantRule from './constants/restaurantRule.js';
+import Event from './domain/Event.js';
+import Discount from './domain/Discount.js';
+import restaurantRule from '../constants/restaurantRule.js';
 
 class PlannerService {
   #reservationDay;

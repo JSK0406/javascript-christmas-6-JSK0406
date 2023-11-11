@@ -1,7 +1,7 @@
-import menu from './constants/menu.js';
-import OrdersValidator from './validator/OrdersValidator.js';
-import restaurantRule from './constants/restaurantRule.js';
-import errorMessage from './constants/errorMessage.js';
+import menu from '../../constants/menu.js';
+import OrdersValidator from '../../validator/OrdersValidator.js';
+import restaurantRule from '../../constants/restaurantRule.js';
+import errorMessage from '../../constants/errorMessage.js';
 
 class Orders {
   #orders;

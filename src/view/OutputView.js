@@ -1,6 +1,6 @@
-import { OUTPUT_VIEW_MESSAGE } from './constants/viewMessage.js';
+import { OUTPUT_VIEW_MESSAGE } from '../constants/viewMessage.js';
 import { Console } from '@woowacourse/mission-utils';
-import Formatting from './utils/Formatting.js';
+import Formatting from '../utils/Formatting.js';
 
 const OutputView = {
   printNewLine() {

@@ -1,5 +1,5 @@
-import ReservationDayValidator from './validator/ReservationDayValidator.js';
-import calender from './constants/calendar.js';
+import ReservationDayValidator from '../../validator/ReservationDayValidator.js';
+import calender from '../../constants/calendar.js';
 
 class ReservationDay {
   #day;

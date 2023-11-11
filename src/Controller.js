@@ -1,8 +1,8 @@
-import PlannerService from './PlannerService.js';
-import InputView from './InputView.js';
-import OutputView from './OutputView.js';
-import ReservationDay from './ReservationDay.js';
-import Orders from './Orders.js';
+import PlannerService from './christmasPromotion/PlannerService.js';
+import InputView from './view/InputView.js';
+import OutputView from './view/OutputView.js';
+import ReservationDay from './christmasPromotion/domain/ReservationDay.js';
+import Orders from './christmasPromotion/domain/Orders.js';
 
 class Controller {
   #plannerService;
