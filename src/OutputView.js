@@ -17,7 +17,7 @@ const OutputView = {
   },
   printOrderedMenu(orders) {
     orders.forEach(({ menuName, orderedCount }) => {
-      console.print(OUTPUT_VIEW_MESSAGE.orderedMenuFn(menuName, orderedCount));
+      Console.print(OUTPUT_VIEW_MESSAGE.orderedMenuFn(menuName, orderedCount));
     });
   },
   printBeforeDiscountInit() {
@@ -40,7 +40,7 @@ const OutputView = {
       Console.print(OUTPUT_VIEW_MESSAGE.christmasDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.christmas)));
     }
     if (discountHistory.weekday > 0) {
-      Console.print(OUTPUT_VIEW_MESSAGE.weekendDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.weekday)));
+      Console.print(OUTPUT_VIEW_MESSAGE.weekdayDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.weekday)));
     }
     if (discountHistory.weekend > 0) {
       Console.print(OUTPUT_VIEW_MESSAGE.weekendDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.weekend)));
