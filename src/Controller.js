@@ -33,6 +33,11 @@ class Controller {
     OutputView.printProgramInit();
     this.assignPlannerService();
   }
+
+  showStartingIntroduction() {
+    OutputView.printIntroduce(this.#plannerService.getReservationDay());
+    OutputView.printNewLine();
+  }
 }
 
 export default Controller;
