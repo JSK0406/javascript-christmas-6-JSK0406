@@ -37,26 +37,26 @@ const OutputView = {
   },
   printDiscountHistory(discountHistory) {
     if (discountHistory.christmas > 0) {
-      Console.print(OUTPUT_VIEW_MESSAGE.christmasDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.christmas)));
+      Console.print(OUTPUT_VIEW_MESSAGE.christmasDiscountFn(Formatting.insertCommasByThousandUnits(-discountHistory.christmas)));
     }
     if (discountHistory.weekday > 0) {
-      Console.print(OUTPUT_VIEW_MESSAGE.weekdayDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.weekday)));
+      Console.print(OUTPUT_VIEW_MESSAGE.weekdayDiscountFn(Formatting.insertCommasByThousandUnits(-discountHistory.weekday)));
     }
     if (discountHistory.weekend > 0) {
-      Console.print(OUTPUT_VIEW_MESSAGE.weekendDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.weekend)));
+      Console.print(OUTPUT_VIEW_MESSAGE.weekendDiscountFn(Formatting.insertCommasByThousandUnits(-discountHistory.weekend)));
     }
     if (discountHistory.specialDay > 0) {
-      Console.print(OUTPUT_VIEW_MESSAGE.specialDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.specialDay)));
+      Console.print(OUTPUT_VIEW_MESSAGE.specialDiscountFn(Formatting.insertCommasByThousandUnits(-discountHistory.specialDay)));
     }
     if (discountHistory.giveaway > 0) {
-      Console.print(OUTPUT_VIEW_MESSAGE.christmasDiscountFn(Formatting.insertCommasByThousandUnits(discountHistory.giveaway)));
+      Console.print(OUTPUT_VIEW_MESSAGE.christmasDiscountFn(Formatting.insertCommasByThousandUnits(-discountHistory.giveaway)));
     }
   },
   printTotalDiscountInit() {
     Console.print(OUTPUT_VIEW_MESSAGE.totalDiscountInit);
   },
   printTotalDiscount(price) {
-    Console.print(OUTPUT_VIEW_MESSAGE.totalDiscountFn(Formatting.insertCommasByThousandUnits(price)));
+    Console.print(OUTPUT_VIEW_MESSAGE.totalDiscountFn(Formatting.insertCommasByThousandUnits(-price)));
   },
   printAfterDiscountInit() {
     Console.print(OUTPUT_VIEW_MESSAGE.afterDiscountInit);
