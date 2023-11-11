@@ -50,6 +50,17 @@ class Controller {
     OutputView.printBeforeDiscount(this.#plannerService.getBeforeDiscountPrice());
     OutputView.printNewLine();
   }
+
+  showGiveaway() {
+    OutputView.printGiveawayInit();
+    if (this.#plannerService.getIsGiveawayEvent()) {
+      OutputView.printGiveaway();
+      OutputView.printNewLine();
+      return;
+    }
+    OutputView.printNothing();
+    OutputView.printNewLine();
+  }
 }
 
 export default Controller;
