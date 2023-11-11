@@ -38,6 +38,12 @@ class Controller {
     OutputView.printIntroduce(this.#plannerService.getReservationDay());
     OutputView.printNewLine();
   }
+
+  showOrderedMenu() {
+    OutputView.printOrderedMenuInit();
+    OutputView.printOrderedMenu(this.#plannerService.getOrderHistory());
+    OutputView.printNewLine();
+  }
 }
 
 export default Controller;
