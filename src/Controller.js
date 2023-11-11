@@ -44,6 +44,12 @@ class Controller {
     OutputView.printOrderedMenu(this.#plannerService.getOrderHistory());
     OutputView.printNewLine();
   }
+
+  showBeforeDiscount() {
+    OutputView.printBeforeDiscountInit();
+    OutputView.printBeforeDiscount(this.#plannerService.getBeforeDiscountPrice());
+    OutputView.printNewLine();
+  }
 }
 
 export default Controller;
