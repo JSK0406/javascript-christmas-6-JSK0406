@@ -1,5 +1,6 @@
 import Event from './Event.js';
 import Discount from './Discount.js';
+import restaurantRule from './constants/restaurantRule.js';
 
 class PlannerService {
   #reservationDay;
@@ -13,7 +14,7 @@ class PlannerService {
     this.#event = new Event();
     this.#discount = new Discount(this.getChristmasDiscount(), this.getWeekdayDiscount(), this.getWeekendDiscount(), this.getSpecialDiscount());
   }
-  
+
   getChristmasDiscount() {
     if (this.#reservationDay.isChristmasEvent) {
       return this.#event.calculateChristmasDiscount(this.#reservationDay.getDay());
@@ -40,6 +41,46 @@ class PlannerService {
       return this.#event.calculateSpecialDiscount();
     }
     return 0;
+  }
+
+  getReservationDay() {
+    return this.#reservationDay.getDay();
+  }
+
+  getOrderHistory() {
+    return this.#orders.getOrders();
+  }
+
+  getBeforeDiscountPrice() {
+    return this.#orders.calculateTotalPrice();
+  }
+
+  getIsGiveawayEvent() {
+    return this.#event.isGiveawayEvent(this.#orders.calculateTotalPrice());
+  }
+
+  getDiscountHistory() {
+    return {
+      christmas: this.getChristmasDiscount(),
+      weekday: this.getWeekdayDiscount(),
+      weekend: this.getWeekendDiscount(),
+      specialDay: this.getSpecialDiscount(),
+    };
+  }
+
+  getTotalDiscountPrice() {
+    return this.#discount.calculateTotalDiscount();
+  }
+
+  getAfterDiscountPrice() {
+    return this.getBeforeDiscountPrice() - this.getTotalDiscountPrice();
+  }
+
+  getBadge() {
+    if (this.#discount.isPossibleReceivingBadge()) {
+      return this.#discount.getBadge();
+    }
+    return null;
   }
 }
 
