@@ -30,3 +30,60 @@ describe('ReservationDay#domain 검증 테스트', () => {
     });
   });
 });
+
+describe('Orders#domain 기능 테스트', () => {
+  test('isChristmasEvent 테스트', () => {
+    const inputs = ['1', '2', '8', '9', '24', '25', '26', '27', '31'];
+    const expectedResults = [true, true, true, true, true, true, false, false, false];
+    
+    const results = inputs.map((input) => {
+      return (new ReservationDay(input)).isChristmasEvent();
+    });
+
+    expect(results).toEqual(expectedResults);
+  });
+
+  test('isWeekdayEvent 테스트', () => {
+    const inputs = ['1', '2', '8', '9', '24', '25', '26', '27', '31'];
+    const expectedResults = [false, false, false, false, true, true, true, true, true];
+    
+    const results = inputs.map((input) => {
+      return (new ReservationDay(input)).isWeekdayEvent();
+    });
+
+    expect(results).toEqual(expectedResults);
+  });
+
+  test('isWeekendEvent 테스트', () => {
+    const inputs = ['1', '2', '8', '9', '24', '25', '26', '27', '31'];
+    const expectedResults = [true, true, true, true, false, false, false, false, false];
+    
+    const results = inputs.map((input) => {
+      return (new ReservationDay(input)).isWeekendEvent();
+    });
+
+    expect(results).toEqual(expectedResults);
+  });
+
+  test('isSpecialEvent 테스트', () => {
+    const inputs = ['1', '2', '8', '9', '24', '25', '26', '27', '31'];
+    const expectedResults = [false, false, false, false, true, true, false, false, true];
+    
+    const results = inputs.map((input) => {
+      return (new ReservationDay(input)).isSpecialEvent();
+    });
+
+    expect(results).toEqual(expectedResults);
+  });
+
+  test('getDay 테스트', () => {
+    const inputs = ['1', '2', '8', '9', '24', '25', '26', '27', '31'];
+    const expectedResults = inputs.map((num) => Number(num));
+    
+    const results = inputs.map((input) => {
+      return (new ReservationDay(input)).getDay();
+    });
+
+    expect(results).toEqual(expectedResults);
+  });
+});
