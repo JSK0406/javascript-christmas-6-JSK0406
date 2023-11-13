@@ -13,7 +13,7 @@ const restaurantRule = Object.freeze({
   EVENT_BADGE: {
     STAR: 5000,
     TREE: 10000,
-    SANTA: 2000,
+    SANTA: 20000,
   },
 });
 
