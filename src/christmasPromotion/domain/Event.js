@@ -3,9 +3,9 @@ import restaurantRule from '../../constants/restaurantRule.js';
 class Event {
   isGiveawayEvent(totalPrice) {
     if (totalPrice >= restaurantRule.GIVE_AWAY_MIN_PRICE) {
-      return restaurantRule.GIVE_AWAY_DISCOUNT;
+      return true;
     }
-    return 0;
+    return false;
   }
 
   calculateChristmasDiscount(day) {
