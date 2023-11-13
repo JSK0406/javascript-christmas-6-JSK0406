@@ -24,7 +24,7 @@ const OutputView = {
     Console.print(OUTPUT_VIEW_MESSAGE.beforeDiscountInit);
   },
   printBeforeDiscount(price) {
-    Console.print(OUTPUT_VIEW_MESSAGE.afterDiscountFn(Formatting.insertCommasByThousandUnits(price)));
+    Console.print(OUTPUT_VIEW_MESSAGE.beforeDiscountFn(Formatting.insertCommasByThousandUnits(price)));
   },
   printGiveawayInit() {
     Console.print(OUTPUT_VIEW_MESSAGE.giveawayInit);
@@ -49,7 +49,7 @@ const OutputView = {
       Console.print(OUTPUT_VIEW_MESSAGE.specialDiscountFn(Formatting.insertCommasByThousandUnits(-discountHistory.specialDay)));
     }
     if (discountHistory.giveaway > 0) {
-      Console.print(OUTPUT_VIEW_MESSAGE.christmasDiscountFn(Formatting.insertCommasByThousandUnits(-discountHistory.giveaway)));
+      Console.print(OUTPUT_VIEW_MESSAGE.giveawayDiscountFn(Formatting.insertCommasByThousandUnits(-discountHistory.giveaway)));
     }
   },
   printTotalDiscountInit() {

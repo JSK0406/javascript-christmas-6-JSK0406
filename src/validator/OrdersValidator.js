@@ -8,8 +8,8 @@ class OrdersValidator {
     orders = orders.split(',');
     ordersValidator.#validateCountRange(orders, ordersError);
     ordersValidator.#validateInMenuList(orders, ordersError);
-    ordersValidator.#validateIsCountNaturalNumber(orders, ordersError);
     ordersValidator.#validateIsCountNumber(orders, ordersError);
+    ordersValidator.#validateIsCountNaturalNumber(orders, ordersError);
     ordersValidator.#validateIsNotUnusualCount(orders, ordersError);
   }
 
