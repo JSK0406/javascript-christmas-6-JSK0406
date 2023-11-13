@@ -18,12 +18,14 @@ class Discount {
   }
 
   checkEventBadge() {
-    if (this.#totalDiscount > restaurantRule.EVENT_BADGE.SANTA) {
+    if (this.#totalDiscount >= restaurantRule.EVENT_BADGE.SANTA) {
       return '산타';
-    } else if (this.#totalDiscount > restaurantRule.EVENT_BADGE.TREE) {
+    } else if (this.#totalDiscount >= restaurantRule.EVENT_BADGE.TREE) {
       return '트리';
+    } else if (this.#totalDiscount >= restaurantRule.EVENT_BADGE.STAR) {
+      return '별';
     }
-    return '별';
+    return null;
   }
 }
 
