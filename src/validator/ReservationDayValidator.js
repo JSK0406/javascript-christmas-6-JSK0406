@@ -1,3 +1,4 @@
+import calender from '../constants/calendar.js';
 import errorMessage from '../constants/errorMessage.js';
 
 class ReservationDayValidator {
@@ -17,7 +18,7 @@ class ReservationDayValidator {
   }
 
   #validateInRange(day, reservationDayError) {
-    if (Number(day) < 1 || Number(day) > 31) {
+    if (Number(day) < calender.DECEMBER_START || Number(day) > calender.DECEMBER_END) {
       throw reservationDayError;
     }
   }
