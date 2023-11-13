@@ -15,40 +15,47 @@ class PlannerService {
     this.#discount = new Discount(this.getChristmasDiscount(), this.getWeekdayDiscount(), this.getWeekendDiscount(), this.getSpecialDiscount(), this.getGiveawayDiscount());
   }
 
+  getIsDiscountPossible() {
+    if (this.#orders.calculateTotalPrice() >= restaurantRule.EVENT_LEAST_PRICE) {
+      return true;
+    }
+    return false;
+  }
+
   getChristmasDiscount() {
-    if (this.#reservationDay.isChristmasEvent()) {
+    if (this.getIsDiscountPossible() && this.#reservationDay.isChristmasEvent()) {
       return this.#event.calculateChristmasDiscount(this.#reservationDay.getDay());
     }
     return 0;
   }
 
   getWeekdayDiscount() {
-    if (this.#reservationDay.isWeekdayEvent()) {
+    if (this.getIsDiscountPossible() && this.#reservationDay.isWeekdayEvent()) {
       return this.#event.calculateWeekdayDiscount(this.#orders.calculateDessertCount());
     }
     return 0;
   }
 
   getWeekendDiscount() {
-    if (this.#reservationDay.isWeekendEvent()) {
+    if (this.getIsDiscountPossible() && this.#reservationDay.isWeekendEvent()) {
       return this.#event.calculateWeekendDiscount(this.#orders.calculateMainCount());
     }
     return 0;
   }
 
   getSpecialDiscount() {
-    if (this.#reservationDay.isSpecialEvent()) {
+    if (this.getIsDiscountPossible() && this.#reservationDay.isSpecialEvent()) {
       return this.#event.calculateSpecialDiscount();
     }
     return 0;
   }
 
   getIsGiveawayEvent() {
-    return this.#event.isGiveawayEvent(this.#orders.calculateTotalPrice());
+    return this.getIsDiscountPossible() && this.#event.isGiveawayEvent(this.#orders.calculateTotalPrice());
   }
 
   getGiveawayDiscount() {
-    if (this.getIsGiveawayEvent()) {
+    if (this.getIsDiscountPossible() && this.getIsGiveawayEvent()) {
       return restaurantRule.GIVE_AWAY_DISCOUNT;
     }
     return 0;
