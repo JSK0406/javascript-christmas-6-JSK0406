@@ -5,8 +5,8 @@ import restaurantRule from '../constants/restaurantRule.js';
 class PlannerService {
   #reservationDay;
   #orders;
-  #discount;
   #event;
+  #discount;
 
   constructor(reservationDay, orders) {
     this.#reservationDay = reservationDay;

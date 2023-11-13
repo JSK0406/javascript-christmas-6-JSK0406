@@ -13,19 +13,12 @@ class Orders {
     this.#validateAfterAssign(ordersError);
   }
 
-  #changeFormatToObject(orders) {
-    return orders.split(',').map((order) => {
-      const [menuName, count] = order.split('-');
-      return { menuName: menuName, orderedCount: Number(count) };
-    });
-  }
-
   calculateTotalPrice() {
     return this.#orders.reduce((totalPrice, { menuName, orderedCount }) => {
       return totalPrice + menu[menuName].price * orderedCount;
     }, 0);
   }
-
+  
   calculateMainCount() {
     return this.#orders.reduce((count, { menuName, orderedCount }) => {
       if (menu[menuName].category === '메인') {
@@ -53,9 +46,16 @@ class Orders {
   getOrders() {
     return [...this.#orders];
   }
-
+  
   extractMenuName() {
     return this.#orders.map(({ menuName }) => menuName);
+  }
+
+  #changeFormatToObject(orders) {
+    return orders.split(',').map((order) => {
+      const [menuName, count] = order.split('-');
+      return { menuName: menuName, orderedCount: Number(count) };
+    });
   }
 
   #validateAfterAssign(ordersError) {
@@ -69,14 +69,14 @@ class Orders {
       throw ordersError;
     }
   }
-
+  
   #validateDuplicatedMenu(ordersError) {
     const menuNames = this.extractMenuName();
     if (menuNames.length !== (new Set(menuNames)).size) {
       throw ordersError;
     }
   }
-
+  
   #validateNotOnlyDrink(ordersError) {
     const menuNames = this.extractMenuName();
     for (const menuName of menuNames) {

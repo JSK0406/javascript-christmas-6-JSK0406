@@ -19,6 +19,11 @@ class Controller {
     this.showBadge();
   }
 
+  async takeReservation() {
+    OutputView.printProgramInit();
+    await this.#assignPlannerService();
+  }
+
   async #assignPlannerService() {
     this.#plannerService = new PlannerService(await this.#createReservationDayFromUser(), await this.#createOrdersFromUser());
   }
@@ -39,11 +44,6 @@ class Controller {
       OutputView.printError(error.message);
       return await this.#createOrdersFromUser();
     }
-  }
-
-  async takeReservation() {
-    OutputView.printProgramInit();
-    await this.#assignPlannerService();
   }
 
   showStartingIntroduction() {
